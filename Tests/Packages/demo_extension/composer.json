@@ -1,0 +1,24 @@
+{
+  "name": "jop-software/demo_extension",
+  "type": "typo3-cms-extension",
+  "description": "TYPO3 Demo extension",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Johannes Przymusinski",
+      "email": "johannes.przymusinski@jop-software.de",
+      "homepage": "https://jop-software.de",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "jop-software/typo3-sentry-client": "@dev"
+  },
+  "repositories": {
+    "tests": {
+      "type": "path",
+      "url": "../../"
+    }
+  }
+}

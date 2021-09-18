@@ -18,6 +18,12 @@
       "role": "Developer"
     }
   ],
+  "repositories": {
+    "tests": {
+      "type": "path",
+      "url": "Tests/Packages/*"
+    }
+  },
   "require": {
     "php": ">=8.0",
     "typo3/cms-backend": "^11.4",
@@ -41,7 +47,8 @@
     "typo3/cms-lowlevel": "^11.4",
     "typo3/cms-tstemplate": "^11.4",
     "typo3/cms-workspaces": "^11.4",
-    "typo3/testing-framework": "^5.0 || ^6.4"
+    "typo3/testing-framework": "^5.0 || ^6.4",
+    "jop-software/demo_extension": "@dev"
   },
   "config": {
     "bin-dir": ".build/bin",
