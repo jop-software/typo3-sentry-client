@@ -1,0 +1,24 @@
+<?php
+
+namespace Jops\TYPO3\Sentry\Handler;
+
+use Throwable;
+
+use function Sentry\init;
+use function Sentry\captureException;
+
+class DebugExceptionHandler extends \TYPO3\CMS\Core\Error\DebugExceptionHandler
+{
+
+	public function handleException(Throwable $exception)
+	{
+		init([
+			"dsn" => "placeholder"
+		]);
+
+		$eventId = captureException($exception);
+
+		parent::handleException($exception);
+	}
+
+}
