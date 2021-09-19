@@ -62,7 +62,7 @@
     "typo3/cms": {
       "app-dir": ".build",
       "extension-key": "typo3_sentry_client",
-      "web-dir": ".build/web"
+      "web-dir": ".build/public"
     }
   },
   "autoload": {
@@ -73,8 +73,8 @@
   "prefer-stable": true,
   "scripts": {
     "post-autoload-dump": [
-      "mkdir -p .build/web/typo3conf/ext/",
-      "[ -L .build/web/typo3conf/ext/typo3_sentry_client ] || ln -snvf ../../../../. .build/web/typo3conf/ext/typo3_sentry_cient"
+      "mkdir -p .build/public/typo3conf/ext/",
+      "[ -L .build/public/typo3conf/ext/typo3_sentry_client ] || ln -snvf ../../../../. .build/public/typo3conf/ext/typo3_sentry_cient"
     ]
   }
 }
