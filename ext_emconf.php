@@ -7,11 +7,11 @@ $EM_CONF[$_EXTKEY] = [
 	'author' => 'jop-software Inh. Johannes Przymusinski',
 	'author_email' => 'info@jop-software.de',
 	'author_company' => 'jop-software Inh. Johannes Przymusinski',
-	'state' => 'in-dev',
+	'state' => 'stable',
 	'uploadfolder' => false,
 	'createDirs' => '',
 	'clearCacheOnLoad' => true,
-	'version' => '0.1.0',
+	'version' => '1.0.0',
 	'constraints' => [
 		'depends' => ['typo3' => '11.4.0-11.99.99'],
 		'conflicts' => [],
