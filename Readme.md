@@ -1,6 +1,15 @@
 # TYPO3 Sentry Client
 This TYPO3 extension allows you to send exceptions that occur in a TYPO3 installation to Sentry.
 
+## Installation
+Install this TYPO3 Extension via composer.
+```console
+composer require jop-software/typo3-sentry-client
+```
+**Attention:**  
+Installation for non-composer installations on TYPO3 is not supported currently, because we depend on some
+composer packages. See [Issue #4](https://github.com/jop-software/typo3_sentry_client/issues/4) for more information. 
+
 ## Local Development
 We use [DDEV](https://ddev.readthedocs.io/en/stable/) for local development.  
 With the extension you get a complete TYPO3 DDEV setup. Type `ddev start` to start the container.
