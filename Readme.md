@@ -9,11 +9,11 @@ With the extension you get a complete TYPO3 DDEV setup. Type `ddev start` to sta
 Currently, the only option to configure the extension is by environment variables.  
 You can set them in the `.htaccess` file:
 ```apacheconf
-###> jop-software/typo3_sentry_client
+###> jop-software/typo3-sentry-client
 SetEnv SENTRY_DSN http://publicKey@your-sentry.tld/projectId
 SetEnv SENTRY_ENVIRONMENT Production
 SetEnv SENTRY_RELASE 9.10.19
-###< jop-software/typo3_sentry_client
+###< jop-software/typo3-sentry-client
 ```
 ### Multiple Environments
 If you use the same `.htaccess` file for multiple environments like Production / Development, you can move the
