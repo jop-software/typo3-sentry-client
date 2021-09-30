@@ -1,8 +1,17 @@
+#
+# Local development
+#
 .build
 .idea
 .vscode
 
+#
+# Composer
+#
 vendor
 composer.lock
 
+#
+# CI Tools
+#
 .phpunit.result.cache
