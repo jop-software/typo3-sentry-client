@@ -8,12 +8,7 @@ composer require jop-software/typo3-sentry-client
 ```
 **Attention:**  
 Installation for non-composer installations on TYPO3 is not supported currently, because we depend on some
-composer packages. See [Issue #4](https://github.com/jop-software/typo3_sentry_client/issues/4) for more information. 
-
-## Local Development
-We use [DDEV](https://ddev.readthedocs.io/en/stable/) for local development.  
-With the extension you get a complete TYPO3 DDEV setup. Type `ddev start` to start the container.
-
+composer packages. See [Issue #4](https://github.com/jop-software/typo3_sentry_client/issues/4) for more information.
 ## Configuration
 Currently, the only option to configure the extension is by environment variables.  
 You can set them in the `.htaccess` file:
@@ -44,6 +39,10 @@ RewriteRule .? - [E=TYPO3_CONTEXT:Production/Staging,E=SENTRY_ENVIRONMENT:Produc
 RewriteCond %{HTTP_HOST} ^www\.example\.com$
 RewriteRule .? - [E=TYPO3_CONTEXT:Production,E=SENTRY_ENVIRONMENT:Production]
 ```
+## Local Development
+We use [DDEV](https://ddev.readthedocs.io/en/stable/) for local development.  
+With the extension you get a complete TYPO3 DDEV setup. Type `ddev start` to start the container.
+
 
 ## License
 This project is licensed under the [MIT License](./LICENSE)
