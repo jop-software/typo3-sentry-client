@@ -16,7 +16,7 @@ You can set them in the `.htaccess` file:
 ###> jop-software/typo3-sentry-client
 SetEnv SENTRY_DSN http://publicKey@your-sentry.tld/projectId
 SetEnv SENTRY_ENVIRONMENT Production
-SetEnv SENTRY_RELASE 9.10.19
+SetEnv SENTRY_RELEASE 9.10.19
 ###< jop-software/typo3-sentry-client
 ```
 Add the `productionExceptionHandler` / `debugExceptionHandler` to your `LocalConfiguration.php` or `AdditionalConfiguration.php`file.
