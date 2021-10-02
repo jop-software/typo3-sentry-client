@@ -22,7 +22,7 @@ SetEnv SENTRY_RELEASE 9.10.19
 Add the `productionExceptionHandler` / `debugExceptionHandler` to your `LocalConfiguration.php` or `AdditionalConfiguration.php`file.
 ```php
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = 'Jops\TYPO3\Sentry\Handler\ProductionExceptionHandler';
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = 'Jops\TYPO3\Sentry\Handler\debugExceptionHandler';
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = 'Jops\TYPO3\Sentry\Handler\DebugExceptionHandler';
 ```
 ### Multiple Environments
 If you use the same `.htaccess` file for multiple environments like Production / Development, you can move the
