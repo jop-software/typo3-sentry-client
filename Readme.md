@@ -43,6 +43,12 @@ RewriteRule .? - [E=TYPO3_CONTEXT:Production,E=SENTRY_ENVIRONMENT:Production]
 We use [DDEV](https://ddev.readthedocs.io/en/stable/) for local development.  
 With the extension you get a complete TYPO3 DDEV setup. Type `ddev start` to start the container.
 
+## Headless
+
+If you use [EXT:headless](https://github.com/TYPO3-Initiatives/headless), you can use the official [@nuxtjs/sentry](https://www.npmjs.com/package/@nuxtjs/sentry) module for the frontend.  
+There is great documentation available [here](https://sentry.nuxtjs.org/).
+
+This extension itself can be used together with [EXT:headless](https://github.com/TYPO3-Initiatives/headless) without any known problems. 
 
 ## License
 This project is licensed under the [MIT License](./LICENSE)
