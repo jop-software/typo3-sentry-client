@@ -1,0 +1,6 @@
+services:
+  Jops\TYPO3\Sentry\Bootstrap\BootCompletedListener:
+    tags:
+      - name: event.listener
+        identifier: 'typo3_sentry_client/boot-completed-listener'
+        event: TYPO3\CMS\Core\Core\Event\BootCompletedEvent
