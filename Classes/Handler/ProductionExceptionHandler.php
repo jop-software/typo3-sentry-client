@@ -3,9 +3,9 @@
 namespace Jops\TYPO3\Sentry\Handler;
 
 use Jops\TYPO3\Sentry\Service\ConfigurationService;
+use Jops\TYPO3\Sentry\Service\SentryService;
 use Throwable;
 use function Sentry\captureException;
-use function Sentry\init;
 
 class ProductionExceptionHandler extends \TYPO3\CMS\Core\Error\ProductionExceptionHandler
 {
@@ -16,11 +16,7 @@ class ProductionExceptionHandler extends \TYPO3\CMS\Core\Error\ProductionExcepti
 			return;
 		}
 
-		init([
-			"dsn" => $dsn,
-			"release" => ConfigurationService::getRelease(),
-			"environment" => ConfigurationService::getEnvironment()
-		]);
+		SentryService::initialize();
 
 		captureException($exception);
 

@@ -3,9 +3,9 @@
 namespace Jops\TYPO3\Sentry\Handler;
 
 use Jops\TYPO3\Sentry\Service\ConfigurationService;
+use Jops\TYPO3\Sentry\Service\SentryService;
 use Throwable;
 
-use function Sentry\init;
 use function Sentry\captureException;
 
 class DebugExceptionHandler extends \TYPO3\CMS\Core\Error\DebugExceptionHandler
@@ -18,11 +18,7 @@ class DebugExceptionHandler extends \TYPO3\CMS\Core\Error\DebugExceptionHandler
 			return;
 		}
 
-		init([
-			"dsn" => $dsn,
-			"release" => ConfigurationService::getRelease(),
-			"environment" => ConfigurationService::getEnvironment()
-		]);
+		SentryService::initialize();
 
 		captureException($exception);
 
