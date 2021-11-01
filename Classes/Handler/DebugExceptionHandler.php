@@ -11,7 +11,7 @@ use function Sentry\captureException;
 class DebugExceptionHandler extends \TYPO3\CMS\Core\Error\DebugExceptionHandler
 {
 
-	public function handleException(Throwable $exception)
+	public function handleException(Throwable $exception): void
 	{
 		if (! $dsn = ConfigurationService::getDsn()) {
 			parent::handleException($exception);

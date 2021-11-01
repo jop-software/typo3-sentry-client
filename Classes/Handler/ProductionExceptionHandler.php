@@ -9,7 +9,7 @@ use function Sentry\captureException;
 
 class ProductionExceptionHandler extends \TYPO3\CMS\Core\Error\ProductionExceptionHandler
 {
-	public function handleException(Throwable $exception)
+	public function handleException(Throwable $exception): void
 	{
 		if (! $dsn = ConfigurationService::getDsn()) {
 			parent::handleException($exception);
