@@ -29,5 +29,8 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
+    - name: Run phpstan agains the code
+      run: composer run-script phpstan
+
     - name: Run unit tests
       run: composer run-script php-unit
