@@ -2,11 +2,11 @@
 
 namespace Jops\TYPO3\Sentry\Middleware;
 
+use Jops\TYPO3\Sentry\Service\SentryService;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Sentry\SentrySdk;
 
 class SentryTransactionMiddleware implements MiddlewareInterface
 {
@@ -15,13 +15,8 @@ class SentryTransactionMiddleware implements MiddlewareInterface
 	{
 		$response = $handler->handle($request);
 
-		$hub = SentrySdk::getCurrentHub();
+		SentryService::finishCurrentTransaction();
 
-		if (($transaction = $hub->getTransaction()) === null) {
-			return $response;
-		}
-
-		$transaction->finish();
 		return $response;
 	}
 }

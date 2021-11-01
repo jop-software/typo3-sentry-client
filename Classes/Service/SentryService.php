@@ -33,4 +33,14 @@ class SentryService
 		$hub->setSpan($hub->startTransaction($context));
 	}
 
+	public static function finishCurrentTransaction(): bool
+	{
+		$hub = SentrySdk::getCurrentHub();
+		if (($transaction = $hub->getTransaction()) === null) {
+			return false;
+		}
+
+		$transaction->finish();
+		return true;
+	}
 }
