@@ -10,5 +10,6 @@ class BootCompletedListener
 	public function __invoke(BootCompletedEvent $event): void
 	{
 		SentryService::initialize();
+		SentryService::startTransaction();
 	}
 }

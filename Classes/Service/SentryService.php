@@ -4,6 +4,7 @@ namespace Jops\TYPO3\Sentry\Service;
 
 use Sentry\ClientBuilder;
 use Sentry\SentrySdk;
+use Sentry\Tracing\TransactionContext;
 
 class SentryService
 {
@@ -21,6 +22,15 @@ class SentryService
 		]);
 
 		SentrySdk::init()->bindClient($clientBuilder->getClient());
+	}
+
+	public static function startTransaction()
+	{
+		$hub = SentrySdk::getCurrentHub();
+		$context = new TransactionContext();
+		$context->setName("Request");
+		$context->setOp("typo3.request");
+		$hub->setSpan($hub->startTransaction($context));
 	}
 
 }
