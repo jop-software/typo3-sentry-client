@@ -18,7 +18,7 @@ class SentryService
 			"dsn" => ConfigurationService::getDsn(),
 			"release" => ConfigurationService::getRelease(),
 			"environment" => ConfigurationService::getEnvironment(),
-			"traces_sample_rate" =>  1.0,
+			"traces_sample_rate" =>  ConfigurationService::getTracesSampleRate()
 		]);
 
 		SentrySdk::init()->bindClient($clientBuilder->getClient());
