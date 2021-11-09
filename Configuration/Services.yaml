@@ -3,4 +3,4 @@ services:
     tags:
       - name: event.listener
         identifier: 'typo3_sentry_client/boot-completed-listener'
-        event: "kernel.request"
+        event: 'TYPO3\CMS\Core\Core\Event\BootCompletedEvent'
