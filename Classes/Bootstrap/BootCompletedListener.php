@@ -10,6 +10,9 @@ class BootCompletedListener
 	public function __invoke(BootCompletedEvent $event): void
 	{
 		SentryService::initialize();
-		SentryService::startTransaction();
+		SentryService::startTransaction(sprintf("%s %s",
+			$_SERVER["REQUEST_METHOD"],
+			$_SERVER["SCRIPT_URI"],
+		));
 	}
 }

@@ -24,11 +24,18 @@ class SentryService
 		SentrySdk::init()->bindClient($clientBuilder->getClient());
 	}
 
-	public static function startTransaction()
+	/**
+	 * Start a transaction with the given name.
+	 * TODO: this needs some work for customisation and there should be a better / more
+	 *  generic way to start a transaction.
+	 *
+	 * @param string $name
+	 */
+	public static function startTransaction(string $name)
 	{
 		$hub = SentrySdk::getCurrentHub();
 		$context = new TransactionContext();
-		$context->setName("Request");
+		$context->setName($name);
 		$context->setOp("typo3.request");
 		$hub->setSpan($hub->startTransaction($context));
 	}
