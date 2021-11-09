@@ -40,6 +40,12 @@ class SentryService
 		$hub->setSpan($hub->startTransaction($context));
 	}
 
+	/**
+	 * Checks for a transaction in the current hub and calls finish() on it.
+	 * Returns a boolean, weather a transaction has been found.
+	 *
+	 * @return bool
+	 */
 	public static function finishCurrentTransaction(): bool
 	{
 		$hub = SentrySdk::getCurrentHub();
