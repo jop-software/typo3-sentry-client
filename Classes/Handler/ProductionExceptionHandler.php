@@ -16,10 +16,9 @@ class ProductionExceptionHandler extends \TYPO3\CMS\Core\Error\ProductionExcepti
 			return;
 		}
 
-		SentryService::initialize();
-
 		captureException($exception);
 
 		parent::handleException($exception);
+		SentryService::finishCurrentTransaction();
 	}
 }

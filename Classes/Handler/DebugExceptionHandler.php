@@ -18,10 +18,9 @@ class DebugExceptionHandler extends \TYPO3\CMS\Core\Error\DebugExceptionHandler
 			return;
 		}
 
-		SentryService::initialize();
-
 		captureException($exception);
 
 		parent::handleException($exception);
+		SentryService::finishCurrentTransaction();
 	}
 }
