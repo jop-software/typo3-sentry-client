@@ -5,6 +5,8 @@ namespace Jops\TYPO3\Sentry\Service;
 use Sentry\ClientBuilder;
 use Sentry\SentrySdk;
 use Sentry\Tracing\TransactionContext;
+use TYPO3\CMS\Core\Log\LogManager;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class SentryService
 {
@@ -20,6 +22,13 @@ class SentryService
 			"environment" => ConfigurationService::getEnvironment(),
 			"traces_sample_rate" =>  ConfigurationService::getTracesSampleRate()
 		]);
+
+		// We need to use the GeneralUtility to instantiate a LogManager, because we can't use either
+		// DependencyInjection or the LoggerAwareTrait.
+		$clientBuilder->setLogger(
+			GeneralUtility::makeInstance(LogManager::class)
+				->getLogger("Sentry-Client") // TODO: The name of the logger should be configurable
+		);
 
 		SentrySdk::init()->bindClient($clientBuilder->getClient());
 	}
