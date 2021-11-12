@@ -16,6 +16,7 @@ You can set them in the `.htaccess` file:
 ###> jop-software/typo3-sentry-client
 SetEnv SENTRY_DSN http://publicKey@your-sentry.tld/projectId
 SetEnv SENTRY_ENVIRONMENT Production
+SetEnv SENTRY_TRACES_SAMPLE_RATE 1.0
 SetEnv SENTRY_RELEASE 9.10.19
 ###< jop-software/typo3-sentry-client
 ```
