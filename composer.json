@@ -83,7 +83,7 @@
       "phpunit"
     ],
     "phpstan":  [
-      "phpstan analyze Classes --level=9"
+      "phpstan"
     ]
   }
 }
