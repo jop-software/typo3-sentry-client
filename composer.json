@@ -32,6 +32,9 @@
   },
   "require-dev": {
     "jop-software/demo_extension": "@dev",
+    "phpstan/extension-installer": "^1.1",
+    "phpstan/phpstan": "^1.0",
+    "saschaegerer/phpstan-typo3": "^1.0",
     "typo3/cms-backend": "^11.5",
     "typo3/cms-belog": "^11.5",
     "typo3/cms-extbase": "^11.5",
@@ -78,6 +81,9 @@
     ],
     "php-unit": [
       "phpunit"
+    ],
+    "phpstan":  [
+      "phpstan"
     ]
   }
 }

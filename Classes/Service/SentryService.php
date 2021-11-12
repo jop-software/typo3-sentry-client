@@ -40,7 +40,7 @@ class SentryService
 	 *
 	 * @param string $name
 	 */
-	public static function startTransaction(string $name)
+	public static function startTransaction(string $name): void
 	{
 		$hub = SentrySdk::getCurrentHub();
 		$context = new TransactionContext();
