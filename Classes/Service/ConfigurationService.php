@@ -18,4 +18,9 @@ class ConfigurationService
 	{
 		return getenv("SENTRY_ENVIRONMENT") ?: "";
 	}
+
+	public static function getTracesSampleRate(): float
+	{
+		return floatval(getenv("SENTRY_TRACES_SAMPLE_RATE")) ?: 0.5;
+	}
 }
