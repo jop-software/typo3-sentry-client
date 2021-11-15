@@ -48,7 +48,7 @@ class ConfigurationService
 			return $release;
 		}
 
-		return "";
+		return "1.0.0";
 	}
 
 	public static function getEnvironment(): string
@@ -61,7 +61,7 @@ class ConfigurationService
 			return $environment;
 		}
 
-		return "";
+		return "Production";
 	}
 
 	public static function getTracesSampleRate(): float
