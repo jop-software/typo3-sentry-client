@@ -40,12 +40,12 @@ class ConfigurationService
 
 	public static function getRelease(): string
 	{
-		if ($dsn = getenv("SENTRY_RELEASE")) {
-			return strval($dsn);
+		if ($release = getenv("SENTRY_RELEASE")) {
+			return strval($release);
 		}
 
-		if ($dsn = self::getExtensionConfiguration("release")) {
-			return $dsn;
+		if ($release = self::getExtensionConfiguration("release")) {
+			return $release;
 		}
 
 		return "";
@@ -53,12 +53,12 @@ class ConfigurationService
 
 	public static function getEnvironment(): string
 	{
-		if ($dsn = getenv("SENTRY_ENVIRONMENT")) {
-			return strval($dsn);
+		if ($environment = getenv("SENTRY_ENVIRONMENT")) {
+			return strval($environment);
 		}
 
-		if ($dsn = self::getExtensionConfiguration("environment")) {
-			return $dsn;
+		if ($environment = self::getExtensionConfiguration("environment")) {
+			return $environment;
 		}
 
 		return "";
@@ -66,12 +66,12 @@ class ConfigurationService
 
 	public static function getTracesSampleRate(): float
 	{
-		if ($dsn = getenv("SENTRY_TRACES_SAMPLE_RATE")) {
-			return strval($dsn);
+		if ($traces_sample_rate = getenv("SENTRY_TRACES_SAMPLE_RATE")) {
+			return floatval($traces_sample_rate);
 		}
 
-		if ($dsn = self::getExtensionConfiguration("traces_sample_rate")) {
-			return floatval($dsn);
+		if ($traces_sample_rate = self::getExtensionConfiguration("traces_sample_rate")) {
+			return floatval($traces_sample_rate);
 		}
 
 		return 0.5;
