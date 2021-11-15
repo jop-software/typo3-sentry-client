@@ -12,6 +12,11 @@
       "role": "Developer"
     }
   ],
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "demo_extension"
+    }
+  },
   "require": {
     "jop-software/typo3-sentry-client": "@dev"
   },
