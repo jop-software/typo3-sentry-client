@@ -9,71 +9,45 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ConfigurationService
 {
+
 	/**
-	 * Get the value from extension configuration by the path.
-	 *
 	 * @param string $path
-	 * @return string
+	 * @return mixed
 	 * @throws ExtensionConfigurationExtensionNotConfiguredException
 	 * @throws ExtensionConfigurationPathDoesNotExistException
 	 */
-	private static function getExtensionConfiguration(string $path): string
+	protected static function getExtensionConfiguration(string $path)
 	{
-		return strval(GeneralUtility::makeInstance(ExtensionConfiguration::class)
-			->get("typo3_sentry_client", $path));
+		/** @var ExtensionConfiguration $extensionConfiguration */
+		$extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
+		return $extensionConfiguration->get('typo3_sentry_client', $path);
 	}
 
 	public static function getDsn(): string
 	{
-		if ($dsn = getenv("SENTRY_DSN")) {
-			return strval($dsn);
-		}
-
-		if ($dsn = self::getExtensionConfiguration("dsn")) {
-			return $dsn;
-		}
-
-		// TODO: we should throw an exception here instead of just returning an empty string because its required
-		//  by the sentry SDK
-		return "";
+		return getenv("SENTRY_DSN")
+			?: self::getExtensionConfiguration("dsn");
 	}
 
 	public static function getRelease(): string
 	{
-		if ($release = getenv("SENTRY_RELEASE")) {
-			return strval($release);
-		}
-
-		if ($release = self::getExtensionConfiguration("release")) {
-			return $release;
-		}
-
-		return "1.0.0";
+		return getenv("SENTRY_RELEASE")
+			?: self::getExtensionConfiguration("release")
+			?: "1.0.0";
 	}
 
 	public static function getEnvironment(): string
 	{
-		if ($environment = getenv("SENTRY_ENVIRONMENT")) {
-			return strval($environment);
-		}
-
-		if ($environment = self::getExtensionConfiguration("environment")) {
-			return $environment;
-		}
-
-		return "Production";
+		// TODO: Update the environment so its for sure compatible with sentry.
+		return getenv("SENTRY_ENVIRONMENT")
+			?: self::getExtensionConfiguration("environment")
+			?: "Production";
 	}
 
 	public static function getTracesSampleRate(): float
 	{
-		if ($traces_sample_rate = getenv("SENTRY_TRACES_SAMPLE_RATE")) {
-			return floatval($traces_sample_rate);
-		}
-
-		if ($traces_sample_rate = self::getExtensionConfiguration("traces_sample_rate")) {
-			return floatval($traces_sample_rate);
-		}
-
-		return 0.5;
+		return floatval(getenv("SENTRY_TRACES_SAMPLE_RATE"))
+			?: floatval(self::getExtensionConfiguration("traces_sample_rate"))
+			?: 0.5;
 	}
 }
