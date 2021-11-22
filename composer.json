@@ -75,10 +75,6 @@
   },
   "prefer-stable": true,
   "scripts": {
-    "post-autoload-dump": [
-      "mkdir -p .build/public/typo3conf/ext/",
-      "[ -L .build/public/typo3conf/ext/typo3_sentry_client ] || ln -snvf ../../../../. .build/public/typo3conf/ext/typo3_sentry_cient"
-    ],
     "php-unit": [
       "phpunit"
     ],
