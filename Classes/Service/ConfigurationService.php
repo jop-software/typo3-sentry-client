@@ -11,16 +11,18 @@ class ConfigurationService
 {
 
 	/**
+	 * Get configuration value from the extension.
+	 *
 	 * @param string $path
-	 * @return mixed
+	 * @return string
 	 * @throws ExtensionConfigurationExtensionNotConfiguredException
 	 * @throws ExtensionConfigurationPathDoesNotExistException
 	 */
-	protected static function getExtensionConfiguration(string $path)
+	protected static function getExtensionConfiguration(string $path): string
 	{
 		/** @var ExtensionConfiguration $extensionConfiguration */
 		$extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
-		return $extensionConfiguration->get('typo3_sentry_client', $path);
+		return strval($extensionConfiguration->get('typo3_sentry_client', $path));
 	}
 
 	public static function getDsn(): string
