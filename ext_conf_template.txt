@@ -1,0 +1,8 @@
+# cat=General; type=string; label=Sentry DSN
+dsn =
+# cat=General; type=string; label=Sentry Environment
+environment =
+# cat=General; type=string; label=Sentry Release
+release =
+# cat=General; type=string; label=Sentry Traces Sample Rate (0.0-1.0)
+traces_sample_rate =
