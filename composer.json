@@ -73,6 +73,11 @@
       "Jops\\TYPO3\\Sentry\\": "Classes"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Jopso\\TYPO3\\Sentry\\Tests\\": "Tests"
+    }
+  },
   "prefer-stable": true,
   "scripts": {
     "post-autoload-dump": [
