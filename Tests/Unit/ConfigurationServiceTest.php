@@ -3,22 +3,37 @@
 namespace Unit;
 
 use Jops\TYPO3\Sentry\Service\ConfigurationService;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 class ConfigurationServiceTest extends UnitTestCase
 {
-	public function testDSNIsEmptyWithoutEnvironmentVariable()
+	public function testDsnFromEnvironmentVariable(): void
 	{
-		$this->assertEquals("", ConfigurationService::getDsn());
+		$expected = "https://custom-sentry.tld";
+		putenv("SENTRY_DSN={$expected}");
+		$actual = ConfigurationService::getDsn();
+
+		$this->assertEquals($expected, $actual);
+		putenv("SENTRY_DSN=");
 	}
 
-	public function testEnvironmentIsEmptyWithoutEnvironmentVariable()
+	public function testDsnFallback(): void
 	{
-		$this->assertEquals("", ConfigurationService::getEnvironment());
+		$expected = "";
+		$actual = ConfigurationService::getDsn();
+
+		$this->assertEquals($expected, $actual);
 	}
 
-	public function testReleaseIsEmptyWithoutEnvironmentVariable()
+	public function testDsnFromExtensionConfiguration()
 	{
-		$this->assertEquals("", ConfigurationService::getRelease());
+		$configuration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
+		$configuration->set("typo3_sentry_client.dsn", $expected = "https://sentry-from-config.tld");
+		$actual = ConfigurationService::getDsn();
+
+		$this->assertEquals($expected, $actual);
 	}
+
 }
