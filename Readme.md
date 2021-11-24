@@ -20,6 +20,10 @@ SetEnv SENTRY_TRACES_SAMPLE_RATE 1.0
 SetEnv SENTRY_RELEASE 9.10.19
 ###< jop-software/typo3-sentry-client
 ```
+
+You can also configure the extension from the TYPO3 backend. You can set the same settings as you can with environment variables.  
+Keep in mind that environment variables get prioritized over extension configuration. 
+
 Add the `productionExceptionHandler` / `debugExceptionHandler` to your `LocalConfiguration.php` or `AdditionalConfiguration.php`file.
 ```php
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = 'Jops\TYPO3\Sentry\Handler\ProductionExceptionHandler';
