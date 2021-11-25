@@ -14,6 +14,7 @@ Currently, the only option to configure the extension is by environment variable
 You can set them in the `.htaccess` file:
 ```apacheconf
 ###> jop-software/typo3-sentry-client
+SetEnv SENTRY_ACTIVE true
 SetEnv SENTRY_DSN http://publicKey@your-sentry.tld/projectId
 SetEnv SENTRY_ENVIRONMENT Production
 SetEnv SENTRY_TRACES_SAMPLE_RATE 1.0
