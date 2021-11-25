@@ -24,8 +24,7 @@ class ConfigurationService
 
 	public static function getActive(): bool
 	{
-		return getenv("SENTRY_ACTIVE")
-			?: boolval(self::getExtensionConfiguration("active")) || false;
+		return getenv("SENTRY_ACTIVE") || self::getExtensionConfiguration("active");
 	}
 
 	public static function getDsn(): string
