@@ -1,3 +1,5 @@
+# cat=General; type=boolean; label=Sentry Active
+active =
 # cat=General; type=string; label=Sentry DSN
 dsn =
 # cat=General; type=string; label=Sentry Environment

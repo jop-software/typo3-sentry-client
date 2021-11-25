@@ -22,6 +22,12 @@ class ConfigurationService
 		return strval($extensionConfiguration->get('typo3_sentry_client', $path));
 	}
 
+	public static function getActive(): bool
+	{
+		return getenv("SENTRY_ACTIVE")
+			?: boolval(self::getExtensionConfiguration("active")) || false;
+	}
+
 	public static function getDsn(): string
 	{
 		return getenv("SENTRY_DSN")
