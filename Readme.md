@@ -1,6 +1,9 @@
 # TYPO3 Sentry Client
 This TYPO3 extension allows you to send exceptions that occur in a TYPO3 installation to Sentry.
 
+---
+[![CI - Pipeline](https://github.com/jop-software/typo3_sentry_client/actions/workflows/ci.yml/badge.svg)](https://github.com/jop-software/typo3_sentry_client/actions/workflows/ci.yml)
+
 ## Installation
 Install this TYPO3 Extension via composer.
 ```console
@@ -9,9 +12,13 @@ composer require jop-software/typo3-sentry-client
 **Attention:**  
 Installation for non-composer installations on TYPO3 is not supported currently, because we depend on some
 composer packages. See [Issue #4](https://github.com/jop-software/typo3_sentry_client/issues/4) for more information.
+
 ## Configuration
-Currently, the only option to configure the extension is by environment variables.  
-You can set them in the `.htaccess` file:
+
+Configuration is supported via TYPO3 Extension configuration and environment variables.  
+See `Settings` > `Extension Configuration` > `typo3_sentry_client` in the TYPO3 backend.  
+
+You can **overwrite** those settings with environment variables:
 ```apacheconf
 ###> jop-software/typo3-sentry-client
 SetEnv SENTRY_ACTIVE true
@@ -21,9 +28,6 @@ SetEnv SENTRY_TRACES_SAMPLE_RATE 1.0
 SetEnv SENTRY_RELEASE 9.10.19
 ###< jop-software/typo3-sentry-client
 ```
-
-You can also configure the extension from the TYPO3 backend. You can set the same settings as you can with environment variables.  
-Keep in mind that environment variables get prioritized over extension configuration. 
 
 Add the `productionExceptionHandler` / `debugExceptionHandler` to your `LocalConfiguration.php` or `AdditionalConfiguration.php`file.
 ```php
