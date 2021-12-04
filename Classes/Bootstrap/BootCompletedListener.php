@@ -2,6 +2,7 @@
 
 namespace Jops\TYPO3\Sentry\Bootstrap;
 
+use Jops\TYPO3\Sentry\Service\ConfigurationService;
 use Jops\TYPO3\Sentry\Service\SentryService;
 use TYPO3\CMS\Core\Core\Event\BootCompletedEvent;
 use TYPO3\CMS\Core\Http\ServerRequestFactory;
@@ -10,6 +11,10 @@ class BootCompletedListener
 {
 	public function __invoke(BootCompletedEvent $event): void
 	{
+		if (! ConfigurationService::getActive()) {
+			return;
+		}
+
 		// We need to create our own request object because it seems to be that there is no way to get this
 		// information from TYPO3 at this point of the boot process :-)
 		$request = ServerRequestFactory::fromGlobals();
