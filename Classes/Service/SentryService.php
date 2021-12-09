@@ -20,14 +20,15 @@ class SentryService
 			"dsn" => ConfigurationService::getDsn(),
 			"release" => ConfigurationService::getRelease(),
 			"environment" => ConfigurationService::getEnvironment(),
-			"traces_sample_rate" =>  ConfigurationService::getTracesSampleRate()
+			"traces_sample_rate" => ConfigurationService::getTracesSampleRate()
 		]);
 
 		// We need to use the GeneralUtility to instantiate a LogManager, because we can't use either
 		// DependencyInjection or the LoggerAwareTrait.
 		$clientBuilder->setLogger(
 			GeneralUtility::makeInstance(LogManager::class)
-				->getLogger("Sentry-Client") // TODO: The name of the logger should be configurable
+				->getLogger("Sentry-Client")
+			// TODO: The name of the logger should be configurable
 		);
 
 		SentrySdk::init()->bindClient($clientBuilder->getClient());
