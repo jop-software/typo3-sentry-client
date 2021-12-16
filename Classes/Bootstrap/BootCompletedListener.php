@@ -20,7 +20,8 @@ class BootCompletedListener
 		$request = ServerRequestFactory::fromGlobals();
 
 		SentryService::initialize();
-		SentryService::startTransaction(sprintf("%s %s://%s%s%s",
+		SentryService::startTransaction(sprintf(
+			"%s %s://%s%s%s",
 			$request->getMethod(),
 			$request->getUri()->getScheme(),
 			$request->getUri()->getHost(),
