@@ -7,7 +7,6 @@ use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 
 class Configuration
 {
-
     protected ExtensionConfiguration $extensionConfiguration;
 
     public function __construct(
