@@ -9,26 +9,26 @@ use TYPO3\CMS\Core\Http\ServerRequestFactory;
 
 class BootCompletedListener
 {
-	public function __invoke(BootCompletedEvent $event): void
-	{
-		if (! ConfigurationService::getActive()) {
-			return;
-		}
+    public function __invoke(BootCompletedEvent $event): void
+    {
+        if (! ConfigurationService::getActive()) {
+            return;
+        }
 
-		// We need to create our own request object because it seems to be that there is no way to get this
-		// information from TYPO3 at this point of the boot process :-)
-		$request = ServerRequestFactory::fromGlobals();
+        // We need to create our own request object because it seems to be that there is no way to get this
+        // information from TYPO3 at this point of the boot process :-)
+        $request = ServerRequestFactory::fromGlobals();
 
-		SentryService::initialize();
-		SentryService::startTransaction(sprintf(
-			"%s %s://%s%s%s",
-			$request->getMethod(),
-			$request->getUri()->getScheme(),
-			$request->getUri()->getHost(),
-			$request->getUri()->getPath(),
-			$request->getUri()->getQuery()
-				? "?{$request->getUri()->getQuery()}"
-				: "",
-		));
-	}
+        SentryService::initialize();
+        SentryService::startTransaction(sprintf(
+            "%s %s://%s%s%s",
+            $request->getMethod(),
+            $request->getUri()->getScheme(),
+            $request->getUri()->getHost(),
+            $request->getUri()->getPath(),
+            $request->getUri()->getQuery()
+                ? "?{$request->getUri()->getQuery()}"
+                : "",
+        ));
+    }
 }

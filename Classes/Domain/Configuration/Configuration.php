@@ -23,8 +23,9 @@ class Configuration
                     $this->$key = $value;
                 }
             }
-        } catch (Exception $exception) {  /* TODO: Better error handling */ }
-
+        } catch (Exception $exception) {
+            return;
+        }
     }
 
     protected bool $active = false;
