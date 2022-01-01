@@ -4,7 +4,10 @@ namespace Jops\TYPO3\Sentry\Service;
 
 use Sentry\ClientBuilder;
 use Sentry\SentrySdk;
+use Sentry\State\Scope;
 use Sentry\Tracing\TransactionContext;
+use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -32,6 +35,11 @@ class SentryService
 		);
 
 		SentrySdk::init()->bindClient($clientBuilder->getClient());
+
+		SentrySdk::getCurrentHub()->configureScope(function (Scope $scope): void {
+			$scope->setTag('typo3.version', (new Typo3Version())->getVersion());
+			$scope->setTag('typo3.application-context', (string)Environment::getContext());
+		});
 	}
 
 	/**
