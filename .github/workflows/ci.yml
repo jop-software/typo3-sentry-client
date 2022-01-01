@@ -40,6 +40,7 @@ jobs:
         php-version:
           - 7.4
           - 8.0
+          - 8.1
 
   test:
     name: "Test PHP-Code"
@@ -71,3 +72,4 @@ jobs:
         php-version:
           - 7.4
           - 8.0
+          - 8.1
