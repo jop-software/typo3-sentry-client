@@ -2,16 +2,20 @@
 
 namespace Jops\TYPO3\Sentry\Bootstrap;
 
+use Jops\TYPO3\Sentry\Domain\Configuration\Configuration;
 use Jops\TYPO3\Sentry\Service\ConfigurationService;
 use Jops\TYPO3\Sentry\Service\SentryService;
 use TYPO3\CMS\Core\Core\Event\BootCompletedEvent;
 use TYPO3\CMS\Core\Http\ServerRequestFactory;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class BootCompletedListener
 {
     public function __invoke(BootCompletedEvent $event): void
     {
-        if (! ConfigurationService::getActive()) {
+        $configuration = GeneralUtility::makeInstance(Configuration::class);
+
+        if (! $configuration->isActive()) {
             return;
         }
 

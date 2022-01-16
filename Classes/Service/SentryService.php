@@ -2,6 +2,7 @@
 
 namespace Jops\TYPO3\Sentry\Service;
 
+use Jops\TYPO3\Sentry\Domain\Configuration\Configuration;
 use Sentry\ClientBuilder;
 use Sentry\SentrySdk;
 use Sentry\State\Scope;
@@ -19,11 +20,13 @@ class SentryService
      */
     public static function initialize(): void
     {
+        $configuration = GeneralUtility::makeInstance(Configuration::class);
+
         $clientBuilder = ClientBuilder::create([
-            "dsn" => ConfigurationService::getDsn(),
-            "release" => ConfigurationService::getRelease(),
-            "environment" => ConfigurationService::getEnvironment(),
-            "traces_sample_rate" => ConfigurationService::getTracesSampleRate()
+            "dsn" => $configuration->getDsn(),
+            "release" => $configuration->getRelease(),
+            "environment" => $configuration->getEnvironment(),
+            "traces_sample_rate" => $configuration->getTracesSampleRate(),
         ]);
 
         // We need to use the GeneralUtility to instantiate a LogManager, because we can't use either
