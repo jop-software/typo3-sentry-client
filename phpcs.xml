@@ -9,17 +9,8 @@
 
     <!--The complete PSR-12 rule set-->
     <rule ref="PSR12">
-        <exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
         <exclude name="Generic.CodeAnalysis.AssignmentInCondition" />
         <exclude name="Squiz.PHP.DisallowMultipleAssignments" />
-    </rule>
-
-    <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
-    <rule ref="Generic.WhiteSpace.ScopeIndent">
-        <properties>
-            <property name="indent" value="4"/>
-            <property name="tabIndent" value="true"/>
-        </properties>
     </rule>
 
     <!-- Arrays -->

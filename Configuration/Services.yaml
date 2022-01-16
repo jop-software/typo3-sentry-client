@@ -4,3 +4,8 @@ services:
       - name: event.listener
         identifier: 'typo3_sentry_client/boot-completed-listener'
         event: 'TYPO3\CMS\Core\Core\Event\BootCompletedEvent'
+
+  Jops\TYPO3\Sentry\Domain\Configuration\Configuration:
+    public: true
+    arguments:
+      - '@TYPO3\CMS\Core\Configuration\ExtensionConfiguration'
