@@ -15,6 +15,7 @@ class Configuration
         $this->extensionConfiguration = $extensionConfiguration;
 
         try {
+            /** @var array<string> $configuration */
             $configuration = $this->extensionConfiguration->get("typo3_sentry_client");
 
             foreach ($configuration as $key => $value) {
