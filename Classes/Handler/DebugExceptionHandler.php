@@ -3,10 +3,8 @@
 namespace Jops\TYPO3\Sentry\Handler;
 
 use Jops\TYPO3\Sentry\Domain\Configuration\Configuration;
-use Jops\TYPO3\Sentry\Service\ConfigurationService;
 use Jops\TYPO3\Sentry\Service\SentryService;
 use Throwable;
-
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 use function Sentry\captureException;
