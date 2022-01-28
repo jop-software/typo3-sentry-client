@@ -19,11 +19,26 @@ class BootCompletedListener
             return;
         }
 
+        SentryService::initialize();
+
+        // TODO: transaction support for CLI SAPI
+        if (PHP_SAPI !== "cli") {
+            $this->startTransactionForWeb();
+        }
+    }
+
+    /**
+     * Start a Sentry transaction for the web SAPI.
+     * Creates the transaction from data store in the request object.
+     *
+     * @return void
+     */
+    private function startTransactionForWeb()
+    {
         // We need to create our own request object because it seems to be that there is no way to get this
         // information from TYPO3 at this point of the boot process :-)
         $request = ServerRequestFactory::fromGlobals();
 
-        SentryService::initialize();
         SentryService::startTransaction(sprintf(
             "%s %s://%s%s%s",
             $request->getMethod(),
