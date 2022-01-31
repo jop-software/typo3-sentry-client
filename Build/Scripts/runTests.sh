@@ -1,3 +1,3 @@
 #!/bin/bash
 
-composer run-script php-unit
+php .build/bin/typo3 phpunit:run

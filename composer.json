@@ -46,14 +46,19 @@
     "typo3/cms-recordlist": "^11.5",
     "typo3/cms-rte-ckeditor": "^11.5",
     "typo3/cms-tstemplate": "^11.5",
-    "typo3/testing-framework": "^5.0 || ^6.4",
+    "typo3/testing-framework": "^6.15",
     "typo3fluid/fluid": "^2.5.2"
   },
   "config": {
     "bin-dir": ".build/bin",
     "optimize-autoloader": true,
     "sort-packages": true,
-    "vendor-dir": ".build/vendor"
+    "vendor-dir": ".build/vendor",
+    "allow-plugins": {
+      "typo3/class-alias-loader": true,
+      "typo3/cms-composer-installers": true,
+      "phpstan/extension-installer": true
+    }
   },
   "extra": {
     "typo3/cms": {
@@ -69,12 +74,15 @@
   },
   "prefer-stable": true,
   "scripts": {
+	  "post-autoload-dump": [
+		  "TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare"
+	  ],
     "ci:sniff": "phpcs Classes Configuration Tests",
     "ci:phpstan": "phpstan",
     "php:test": "phpunit",
 
     "php-unit": [
-      "phpunit"
+      "@typo3 phpunit:run"
     ],
     "phpstan":  [
       "phpstan"
