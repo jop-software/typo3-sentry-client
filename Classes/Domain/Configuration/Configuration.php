@@ -37,7 +37,7 @@ class Configuration
 
             foreach ($configuration as $key => $value) {
                 if (property_exists(__CLASS__, $key) && $value !== "") {
-                    $this->$key = $value;
+                    $this->{$key} = $value;
                 }
             }
         } catch (Exception $exception) {
@@ -64,7 +64,11 @@ class Configuration
         foreach ($envMapping as $conf) {
             $value = getenv($conf[1]);
             if ($value) {
-                $this->$conf[0] = $value;
+                $type = gettype($this->{$conf[0]});
+                settype($value, $type);
+                // FIXME: Remove comment when phpstan has proper support for \settype();
+                // @phpstan-ignore-next-line
+                $this->{$conf[0]} = $value;
             }
         }
     }
