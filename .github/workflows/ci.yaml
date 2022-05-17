@@ -35,6 +35,9 @@ jobs:
       - name: "Run PHPStan"
         run: "composer ci:phpstan"
 
+      - name: "Run Rector"
+        run: '.build/bin/rector process --dry-run'
+
     strategy:
       fail-fast: false
       matrix:
