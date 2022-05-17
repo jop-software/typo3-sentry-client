@@ -78,6 +78,16 @@
     ],
     "phpstan":  [
       "phpstan"
-    ]
+    ],
+	  "prepare-release": [
+		  "rm -rf .ddev",
+		  "rm -rf .github",
+		  "rm phpcs.xml",
+		  "rm phpstan.neon",
+		  "rm phpunit.xml",
+		  "rm composer.lock",
+		  "rm .gitignore"
+	  ]
+  }
   }
 }
