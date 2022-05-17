@@ -1,93 +1,92 @@
 {
-  "name": "jop-software/typo3-sentry-client",
-  "type": "typo3-cms-extension",
-  "description": "Sentry Client for TYPO3",
-  "keywords": [
-    "TYPO3",
-    "TYPO3 CMS",
-    "Sentry",
-    "Sentry Client"
-  ],
-  "homepage": "https://jop-software.de",
-  "license": "GPL-2.0-or-later",
-  "authors": [
-    {
-      "name": "Johannes Przymusinski",
-      "email": "johannes.przymusinski@jop-software.de",
-      "homepage": "https://jop-software.de",
-      "role": "Developer"
-    }
-  ],
-  "repositories": {
-    "tests": {
-      "type": "path",
-      "url": "Tests/Packages/*"
-    }
-  },
-  "require": {
-    "php": "^7.4 || ^8.0",
-    "php-http/curl-client": "^2.2",
-    "sentry/sentry": "^3.3",
-    "typo3/cms-core": "^11.5"
-  },
-  "require-dev": {
-    "jop-software/demo_extension": "@dev",
-    "phpstan/extension-installer": "^1.1",
-    "phpstan/phpstan": "^1.0",
-    "saschaegerer/phpstan-typo3": "^1.0",
-    "squizlabs/php_codesniffer": "^3.6",
-    "typo3/cms-backend": "^11.5",
-    "typo3/cms-extbase": "^11.5",
-    "typo3/cms-extensionmanager": "^11.5",
-    "typo3/cms-filelist": "^11.5",
-    "typo3/cms-fluid": "^11.5",
-    "typo3/cms-frontend": "^11.5",
-    "typo3/cms-install": "^11.5",
-    "typo3/cms-recordlist": "^11.5",
-    "typo3/cms-rte-ckeditor": "^11.5",
-    "typo3/cms-tstemplate": "^11.5",
-    "typo3/testing-framework": "^5.0 || ^6.4",
-    "typo3fluid/fluid": "^2.5.2"
-  },
-  "config": {
-    "bin-dir": ".build/bin",
-    "optimize-autoloader": true,
-    "sort-packages": true,
-    "vendor-dir": ".build/vendor"
-  },
-  "extra": {
-    "typo3/cms": {
-      "app-dir": ".build",
-      "extension-key": "typo3_sentry_client",
-      "web-dir": ".build/public"
-    }
-  },
-  "autoload": {
-    "psr-4": {
-      "Jops\\TYPO3\\Sentry\\": "Classes"
-    }
-  },
-  "prefer-stable": true,
-  "scripts": {
-    "ci:sniff": "phpcs Classes Configuration Tests",
-    "ci:phpstan": "phpstan",
-    "php:test": "phpunit",
-
-    "php-unit": [
-      "phpunit"
-    ],
-    "phpstan":  [
-      "phpstan"
-    ],
-	  "prepare-release": [
-		  "rm -rf .ddev",
-		  "rm -rf .github",
-		  "rm phpcs.xml",
-		  "rm phpstan.neon",
-		  "rm phpunit.xml",
-		  "rm composer.lock",
-		  "rm .gitignore"
-	  ]
-  }
-  }
+	"name": "jop-software/typo3-sentry-client",
+	"type": "typo3-cms-extension",
+	"description": "Sentry Client for TYPO3",
+	"keywords": [
+		"TYPO3",
+		"TYPO3 CMS",
+		"Sentry",
+		"Sentry Client"
+	],
+	"homepage": "https://jop-software.de",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Johannes Przymusinski",
+			"email": "johannes.przymusinski@jop-software.de",
+			"homepage": "https://jop-software.de",
+			"role": "Developer"
+		}
+	],
+	"repositories": {
+		"tests": {
+			"type": "path",
+			"url": "Tests/Packages/*"
+		}
+	},
+	"require": {
+		"php": "^7.4 || ^8.0",
+		"php-http/curl-client": "^2.2",
+		"sentry/sentry": "^3.3",
+		"typo3/cms-core": "^11.5"
+	},
+	"require-dev": {
+		"jop-software/demo_extension": "@dev",
+		"phpstan/extension-installer": "^1.1",
+		"phpstan/phpstan": "^1.0",
+		"saschaegerer/phpstan-typo3": "^1.0",
+		"squizlabs/php_codesniffer": "^3.6",
+		"typo3/cms-backend": "^11.5",
+		"typo3/cms-extbase": "^11.5",
+		"typo3/cms-extensionmanager": "^11.5",
+		"typo3/cms-filelist": "^11.5",
+		"typo3/cms-fluid": "^11.5",
+		"typo3/cms-frontend": "^11.5",
+		"typo3/cms-install": "^11.5",
+		"typo3/cms-recordlist": "^11.5",
+		"typo3/cms-rte-ckeditor": "^11.5",
+		"typo3/cms-tstemplate": "^11.5",
+		"typo3/testing-framework": "^5.0 || ^6.4",
+		"typo3fluid/fluid": "^2.5.2"
+	},
+	"config": {
+		"bin-dir": ".build/bin",
+		"optimize-autoloader": true,
+		"sort-packages": true,
+		"vendor-dir": ".build/vendor"
+	},
+	"extra": {
+		"typo3/cms": {
+			"app-dir": ".build",
+			"extension-key": "typo3_sentry_client",
+			"web-dir": ".build/public"
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"Jops\\TYPO3\\Sentry\\": "Classes"
+		}
+	},
+	"prefer-stable": true,
+	"scripts": {
+		"ci:sniff": "phpcs Classes Configuration Tests",
+		"ci:phpstan": "phpstan",
+		"php:test": "phpunit",
+		"php-unit": [
+			"phpunit"
+		],
+		"phpstan": [
+			"phpstan"
+		],
+		"prepare-release": [
+			"rm -rf .ddev",
+			"rm -rf .github",
+			"rm phpcs.xml",
+			"rm phpstan.neon",
+			"rm phpunit.xml",
+			"rm composer.lock",
+			"rm .gitignore"
+		]
+	}
 }
+
