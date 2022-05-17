@@ -1,8 +1,7 @@
 {
-  "name": "jop-software/demo_extension",
+  "name": "jop-software/demo-extension",
   "type": "typo3-cms-extension",
   "description": "TYPO3 Demo extension",
-  "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
     {
@@ -25,5 +24,6 @@
       "type": "path",
       "url": "../../"
     }
-  }
+  },
+  "minimum-stability": "stable"
 }

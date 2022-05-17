@@ -15,7 +15,7 @@ class DebugExceptionHandler extends \TYPO3\CMS\Core\Error\DebugExceptionHandler
     {
         $configuration = GeneralUtility::makeInstance(Configuration::class);
 
-        if (! $dsn = $configuration->getDsn()) {
+        if (($dsn = $configuration->getDsn()) === '' || ($dsn = $configuration->getDsn()) === '0') {
             parent::handleException($exception);
             return;
         }

@@ -49,8 +49,6 @@ class SentryService
      * Start a transaction with the given name.
      * TODO: this needs some work for customisation and there should be a better / more
      *  generic way to start a transaction.
-     *
-     * @param string $name
      */
     public static function startTransaction(string $name): void
     {
@@ -64,8 +62,6 @@ class SentryService
     /**
      * Checks for a transaction in the current hub and calls finish() on it.
      * Returns a boolean, weather a transaction has been found.
-     *
-     * @return bool
      */
     public static function finishCurrentTransaction(): bool
     {

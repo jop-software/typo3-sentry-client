@@ -45,7 +45,7 @@ class BootCompletedListener
             $request->getUri()->getScheme(),
             $request->getUri()->getHost(),
             $request->getUri()->getPath(),
-            $request->getUri()->getQuery()
+            $request->getUri()->getQuery() !== '' && $request->getUri()->getQuery() !== '0'
                 ? "?{$request->getUri()->getQuery()}"
                 : "",
         ));

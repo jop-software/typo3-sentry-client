@@ -1,9 +1,9 @@
 <?php
 
-namespace Unit\Domain\Configuration;
+namespace Jops\TYPO3\Sentry\Tests\Unit\Domain\Configuration;
 
-use Jops\TYPO3\Sentry\Domain\Configuration\Configuration;
 use TYPO3\TestingFramework\Core\BaseTestCase;
+use Jops\TYPO3\Sentry\Domain\Configuration\Configuration;
 
 class ConfigurationTest extends BaseTestCase
 {

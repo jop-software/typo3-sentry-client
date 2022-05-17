@@ -1,14 +1,16 @@
 <?php
 
+use Jops\TYPO3\Sentry\Middleware\SentryTransactionMiddleware;
+
 return [
     "frontend" => [
         "sentry-transaction" => [
-            "target" => \Jops\TYPO3\Sentry\Middleware\SentryTransactionMiddleware::class
+            "target" => SentryTransactionMiddleware::class
         ]
     ],
     "backend" => [
         "sentry-transaction" => [
-            "target" => \Jops\TYPO3\Sentry\Middleware\SentryTransactionMiddleware::class
+            "target" => SentryTransactionMiddleware::class
         ]
     ],
 ];
