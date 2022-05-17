@@ -9,7 +9,7 @@
     "Sentry Client"
   ],
   "homepage": "https://jop-software.de",
-  "license": "MIT",
+  "license": "GPL-2.0-or-later",
   "authors": [
     {
       "name": "Johannes Przymusinski",

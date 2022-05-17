@@ -4,19 +4,23 @@ This TYPO3 extension allows you to send exceptions that occur in a TYPO3 install
 ---
 [![CI - Pipeline](https://github.com/jop-software/typo3_sentry_client/actions/workflows/ci.yml/badge.svg)](https://github.com/jop-software/typo3_sentry_client/actions/workflows/ci.yml)
 
+## Professional Support
+
+Professional support is available, please contact [info@jop-software.de](mailto:info@jop-software.de) for more information.
+
 ## Installation
 Install this TYPO3 Extension via composer.
 ```console
 composer require jop-software/typo3-sentry-client
 ```
-**Attention:**  
+**Attention:**
 Installation for non-composer installations on TYPO3 is not supported currently, because we depend on some
 composer packages. See [Issue #4](https://github.com/jop-software/typo3_sentry_client/issues/4) for more information.
 
 ## Configuration
 
-Configuration is supported via TYPO3 Extension configuration and environment variables.  
-See `Settings` > `Extension Configuration` > `typo3_sentry_client` in the TYPO3 backend.  
+Configuration is supported via TYPO3 Extension configuration and environment variables.
+See `Settings` > `Extension Configuration` > `typo3_sentry_client` in the TYPO3 backend.
 
 You can **overwrite** those settings with environment variables:
 ```apacheconf
@@ -50,15 +54,19 @@ RewriteCond %{HTTP_HOST} ^www\.example\.com$
 RewriteRule .? - [E=TYPO3_CONTEXT:Production,E=SENTRY_ENVIRONMENT:Production]
 ```
 ## Local Development
-We use [DDEV](https://ddev.readthedocs.io/en/stable/) for local development.  
+We use [DDEV](https://ddev.readthedocs.io/en/stable/) for local development.
 With the extension you get a complete TYPO3 DDEV setup. Type `ddev start` to start the container.
 
 ## Headless
 
-If you use [EXT:headless](https://github.com/TYPO3-Initiatives/headless), you can use the official [@nuxtjs/sentry](https://www.npmjs.com/package/@nuxtjs/sentry) module for the frontend.  
+If you use [EXT:headless](https://github.com/TYPO3-Initiatives/headless), you can use the official [@nuxtjs/sentry](https://www.npmjs.com/package/@nuxtjs/sentry) module for the frontend.
 There is great documentation available [here](https://sentry.nuxtjs.org/).
 
-This extension itself can be used together with [EXT:headless](https://github.com/TYPO3-Initiatives/headless) without any known problems. 
+This extension itself can be used together with [EXT:headless](https://github.com/TYPO3-Initiatives/headless) without any known problems.
 
 ## License
-This project is licensed under the [MIT License](./LICENSE)
+This project is licensed under [GPL-2.0-or-later](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html), see the [LICENSE](./LICENSE) file for more information.
+
+<div align="center">
+    <p>&copy; 2022, <a href="mailto:info@jop-software.de">jop-software Inh. Johannes Przymusinski</a></p>
+</div>
