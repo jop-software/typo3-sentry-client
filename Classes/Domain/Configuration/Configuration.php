@@ -41,15 +41,12 @@ class Configuration
                 }
             }
         } catch (Exception $exception) {
-            return;
         }
     }
 
     /**
      * Populate $this with configuration from environment variables.
      * If the environment variable is not set, the property does not get set and remains at the default value.
-     *
-     * @return void
      */
     private function populateWithEnvironmentVariables(): void
     {
@@ -73,49 +70,31 @@ class Configuration
         }
     }
 
-    /**
-     * @return ExtensionConfiguration
-     */
     public function getExtensionConfiguration(): ExtensionConfiguration
     {
         return $this->extensionConfiguration;
     }
 
-    /**
-     * @return bool
-     */
     public function isActive(): bool
     {
         return $this->active;
     }
 
-    /**
-     * @return string
-     */
     public function getDsn(): string
     {
         return $this->dsn;
     }
 
-    /**
-     * @return string
-     */
     public function getEnvironment(): string
     {
         return $this->environment;
     }
 
-    /**
-     * @return string
-     */
     public function getRelease(): string
     {
         return $this->release;
     }
 
-    /**
-     * @return float
-     */
     public function getTracesSampleRate(): float
     {
         return $this->traces_sample_rate;

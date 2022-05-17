@@ -15,3 +15,4 @@ composer.lock
 # CI Tools
 #
 .phpunit.result.cache
+.phpcs-cache
