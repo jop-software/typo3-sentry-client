@@ -2,7 +2,7 @@
 This TYPO3 extension allows you to send exceptions that occur in a TYPO3 installation to Sentry.
 
 ---
-[![CI - Pipeline](https://github.com/jop-software/typo3_sentry_client/actions/workflows/ci.yml/badge.svg)](https://github.com/jop-software/typo3_sentry_client/actions/workflows/ci.yml)
+[![CI - Pipeline](https://github.com/jop-software/typo3-sentry-client/actions/workflows/ci.yaml/badge.svg)](https://github.com/jop-software/typo3-sentry-client/actions/workflows/ci.yaml)
 
 ## Professional Support
 
