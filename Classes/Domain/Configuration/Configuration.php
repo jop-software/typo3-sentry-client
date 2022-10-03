@@ -14,6 +14,7 @@ class Configuration
     protected string $environment = "Production";
     protected string $release = "1.0.0";
     protected float $traces_sample_rate = 0.0;
+    protected string $blacklist_pattern = "";
 
     /**
      * Configuration constructor.
@@ -98,5 +99,10 @@ class Configuration
     public function getTracesSampleRate(): float
     {
         return $this->traces_sample_rate;
+    }
+
+    public function getBlacklistPattern(): string
+    {
+        return $this->blacklist_pattern;
     }
 }

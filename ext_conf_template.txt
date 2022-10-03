@@ -8,3 +8,5 @@ environment =
 release =
 # cat=General; type=string; label=Sentry Traces Sample Rate (0.0-1.0)
 traces_sample_rate =
+# cat=General; type=string; label=Regex which matches excluded FQCNs
+blacklist_pattern =
