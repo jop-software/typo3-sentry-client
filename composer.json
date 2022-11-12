@@ -34,6 +34,7 @@
 		"jop-software/demo-extension": "@dev",
 		"phpstan/extension-installer": "^1.1",
 		"phpstan/phpstan": "^1.0",
+		"phpunit/phpunit": "^9",
 		"saschaegerer/phpstan-typo3": "^1.0",
 		"squizlabs/php_codesniffer": "^3.6",
 		"ssch/typo3-rector": "^1.0",
