@@ -29,7 +29,7 @@ jobs:
           path: ~/.cache/composer
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       - name: "Install Composer dependencies"
-        run: "composer install --no-progress"
+        run: "composer update --no-progress ${{ matrix.prefer-lowest }}"
       - name: "Run PHP_CodeSniffer"
         run: "composer ci:sniff"
       - name: "Run PHPStan"
@@ -45,6 +45,9 @@ jobs:
           - 7.4
           - 8.0
           - 8.1
+        prefer-lowest:
+          - "--prefer-lowest"
+          - ""
 
   test:
     name: "Test PHP-Code"
@@ -66,7 +69,7 @@ jobs:
           path: ~/.cache/composer
           restore-keys: "php${{ matrix.php-version }}-composer-\n"
       - name: "Install Composer dependencies"
-        run: "composer install --no-progress"
+        run: "composer update --no-progress ${{ matrix.prefer-lowest }}"
       - name: "Run Test Suite"
         run: "composer php:test"
 
@@ -77,3 +80,6 @@ jobs:
           - 7.4
           - 8.0
           - 8.1
+        prefer-lowest:
+          - "--prefer-lowest"
+          - ""
