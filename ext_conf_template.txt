@@ -10,3 +10,5 @@ release =
 traces_sample_rate =
 # cat=General; type=string; label=Regex which matches excluded FQCNs
 blacklist_pattern =
+# cat=General; type=integer; label=PHP error_reporting level
+error_level =

@@ -17,5 +17,6 @@ class ConfigurationTest extends BaseTestCase
         $this->assertEquals("1.0.0", $configuration->getRelease());
         $this->assertEquals(0.0, $configuration->getTracesSampleRate());
         $this->assertEquals("", $configuration->getBlacklistPattern());
+        $this->assertEquals(E_ALL, $configuration->getErrorLevel());
     }
 }
