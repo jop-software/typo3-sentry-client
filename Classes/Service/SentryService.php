@@ -2,6 +2,7 @@
 
 namespace Jops\TYPO3\Sentry\Service;
 
+use Sentry\Tracing\Transaction;
 use Jops\TYPO3\Sentry\Domain\Configuration\Configuration;
 use Sentry\ClientBuilder;
 use Sentry\SentrySdk;
@@ -67,7 +68,7 @@ class SentryService
     public static function finishCurrentTransaction(): bool
     {
         $hub = SentrySdk::getCurrentHub();
-        if (($transaction = $hub->getTransaction()) === null) {
+        if (!($transaction = $hub->getTransaction()) instanceof Transaction) {
             return false;
         }
 
