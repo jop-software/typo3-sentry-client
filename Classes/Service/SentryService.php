@@ -27,6 +27,7 @@ class SentryService
             "release" => $configuration->getRelease(),
             "environment" => $configuration->getEnvironment(),
             "traces_sample_rate" => $configuration->getTracesSampleRate(),
+            "error_types" => $configuration->getErrorLevel(),
         ]);
 
         // We need to use the GeneralUtility to instantiate a LogManager, because we can't use either

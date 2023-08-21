@@ -15,6 +15,7 @@ class Configuration
     protected string $release = "1.0.0";
     protected float $traces_sample_rate = 0.0;
     protected string $blacklist_pattern = "";
+    protected int $error_level = E_ALL;
 
     /**
      * Configuration constructor.
@@ -57,6 +58,7 @@ class Configuration
             ["environment", "SENTRY_ENVIRONMENT"],
             ["release", "SENTRY_RELEASE"],
             ["traces_sample_rate", "SENTRY_TRACES_SAMPLE_RATE"],
+            ["error_level", "SENTRY_ERROR_LEVEL"],
         ];
 
         foreach ($envMapping as $conf) {
@@ -104,5 +106,10 @@ class Configuration
     public function getBlacklistPattern(): string
     {
         return $this->blacklist_pattern;
+    }
+
+    public function getErrorLevel(): int
+    {
+        return $this->error_level;
     }
 }
