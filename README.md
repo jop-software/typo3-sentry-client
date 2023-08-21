@@ -30,6 +30,7 @@ SetEnv SENTRY_DSN http://publicKey@your-sentry.tld/projectId
 SetEnv SENTRY_ENVIRONMENT Production
 SetEnv SENTRY_TRACES_SAMPLE_RATE 1.0
 SetEnv SENTRY_RELEASE 9.10.19
+SetEnv SENTRY_ERROR_LEVEL 32767 # See https://www.php.net/manual/en/errorfunc.constants.php
 ###< jop-software/typo3-sentry-client
 ```
 
@@ -68,5 +69,5 @@ This extension itself can be used together with [EXT:headless](https://github.co
 This project is licensed under [GPL-2.0-or-later](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html), see the [LICENSE](./LICENSE) file for more information.
 
 <div align="center">
-    <p>&copy; 2022, <a href="mailto:info@jop-software.de">jop-software Inh. Johannes Przymusinski</a></p>
+    <p>&copy; 2022-2023, <a href="mailto:info@jop-software.de">jop-software Inh. Johannes Przymusinski</a></p>
 </div>

@@ -9,7 +9,7 @@ $EM_CONF[$_EXTKEY] = [
 	'author_company' => 'jop-software Inh. Johannes Przymusinski',
 	'state' => 'stable',
 	'clearCacheOnLoad' => true,
-	'version' => '1.5.1',
+	'version' => '1.6.0',
 	'constraints' => [
 		'depends' => ['typo3' => '11.4.0-11.99.99'],
 		'conflicts' => [],
