@@ -38,9 +38,13 @@ class Configuration
             $configuration = $this->extensionConfiguration->get("typo3_sentry_client");
 
             foreach ($configuration as $key => $value) {
-                if (property_exists(__CLASS__, $key) && $value !== "") {
-                    $this->{$key} = $value;
+                if (!property_exists(__CLASS__, $key)) {
+                    continue;
                 }
+                if ($value === "") {
+                    continue;
+                }
+                $this->{$key} = $value;
             }
         } catch (Exception $exception) {
         }
